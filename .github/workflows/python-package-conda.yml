@@ -56,13 +56,12 @@ jobs:
       with:
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
-        channels: conda-forge,defaults
     - name: Install dependencies
       shell: bash -l {0}
       run: |
         conda create --yes -n env_name python=${{ matrix.python-version }}
         conda activate env_name
-        conda install -y pip click numpy "scipy>=1.3.1" future six "pandas>=0.20.0" h5py>=2.2.0 cython pytest flake8
+        conda install -y pip click numpy "scipy>=1.3.1" future six "pandas>=0.20.0" 'h5py>=2.2.0' cython pytest flake8
         pip install anndata
 
     - name: Tests
